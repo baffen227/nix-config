@@ -158,7 +158,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     appimage-run
      curl
      git
      vim
@@ -167,17 +166,6 @@
 
   # Set default editor as "vim" 
   environment.variables.EDITOR = "vim";
-
-  # Register AppImage files as a binary type to binfmt_misc
-  # reference: https://nixos.wiki/wiki/Appimage
-  boot.binfmt.registrations.appimage = {
-    wrapInterpreterInShell = false;
-    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-    recognitionType = "magic";
-    offset = 0;
-    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
-    magicOrExtension = ''\x7fELF....AI\x02'';
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
