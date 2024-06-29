@@ -140,7 +140,7 @@
       # initialPassword = "correcthorsebatterystaple";
 
       isNormalUser = true;
-      description = "baffen227"
+      description = "baffen227";
 
       # https://nixos.wiki/wiki/SSH_public_key_authentication
       #openssh.authorizedKeys.keys = [
