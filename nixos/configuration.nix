@@ -115,15 +115,15 @@
         ];
         monospace = [
           "Source Code Pro"
-          "Noto Sans Mono TC"
+          "Noto Sans Mono CJK TC"
           "DejaVu Sans Mono"
         ];
         sansSerif = [
-          "Noto Sans TC"
+          "Noto Sans CJK TC"
           "DejaVu Sans"
         ];
         serif = [
-          "Noto Serif TC"
+          "Noto Serif CJK TC"
           "DejaVu Serif"
         ];
       };
