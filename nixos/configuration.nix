@@ -99,6 +99,37 @@
     fcitx5.addons = with pkgs; [ fcitx5-chewing fcitx5-gtk ];
   };
 
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji-blob-bin
+      source-code-pro
+    ];
+    fontconfig = {
+      defaultFonts = {
+        emoji = [
+          "Noto Color Emoji"
+        ];
+        monospace = [
+          "Source Code Pro"
+          "Noto Sans Mono TC"
+          "DejaVu Sans Mono"
+        ];
+        sansSerif = [
+          "Noto Sans TC"
+          "DejaVu Sans"
+        ];
+        serif = [
+          "Noto Serif TC"
+          "DejaVu Serif"
+        ];
+      };
+    };
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
