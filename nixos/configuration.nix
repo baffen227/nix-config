@@ -165,6 +165,13 @@
   environment.systemPackages = with pkgs; [
      curl
      git
+
+     # Install Input Method Panel GNOME Shell Extensions to provide the input method popup.
+     gnomeExtensions.kimpanel
+
+     # Install Gnome Tweaks for remapping CapsLock to Ctrl
+     gnome.gnome-tweaks
+
      vim
      wget
   ];
