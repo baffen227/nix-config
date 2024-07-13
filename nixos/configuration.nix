@@ -217,18 +217,23 @@
     gnome-tour
     yelp
   ]) ++ (with pkgs.gnome; [
-    gnome-maps
+    gnome-clocks
     gnome-contacts
-    gnome-calendar
-    cheese # webcam tool
+    gnome-maps
     gnome-music
+    gnome-weather
+    gnome-calendar
+
+    cheese # webcam tool
     epiphany # web browser
     geary # email reader
     totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
+    simple-scan # document scanner
+
     atomix # puzzle game
+    hitori # sudoku game
+    iagno # go game
+    tali # poker game
   ]);
 
   # Some programs need SUID wrappers, can be configured further or are
