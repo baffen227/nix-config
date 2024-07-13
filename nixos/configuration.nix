@@ -210,6 +210,27 @@
   # Set default editor as "vim" 
   environment.variables.EDITOR = "vim";
 
+  # Excluding some GNOME applications from the default install
+  # https://nixos.wiki/wiki/GNOME
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    yelp
+  ]) ++ (with pkgs.gnome; [
+    gnome-maps
+    gnome-contacts
+    gnome-calendar
+    cheese # webcam tool
+    gnome-music
+    epiphany # web browser
+    geary # email reader
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
