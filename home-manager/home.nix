@@ -118,6 +118,21 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+  # Enable and setup alacritty
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      env.TERM = "xterm-256color";
+      font = {
+        size = 12;
+        draw_bold_text_with_bright_colors = true;
+      };
+      scrolling.multiplier = 5;
+      selection.save_to_clipboard = true;
+    };
+  };
+
+  # Enable neovim
   programs.neovim.enable = true;
 
   # Nicely reload system units when changing configs
