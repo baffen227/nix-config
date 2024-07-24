@@ -122,7 +122,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
+    #autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
@@ -131,7 +131,7 @@
       update_home = "home-manager switch --flake .#baffen227@nixos";
     };
 
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
       plugins = [
