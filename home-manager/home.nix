@@ -125,6 +125,8 @@
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
+    defaultKeymap = "emacs";
+
     shellAliases = {
       ll = "ls -l";
       update_system = "sudo nixos-rebuild switch --flake .#nixos";
