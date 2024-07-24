@@ -166,6 +166,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # This option defines the default shell assigned to user accounts.
+  # To enable zsh system-wide, use the users.defaultUserShell option.
+  users.defaultUserShell = pkgs.zsh;
+
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     # Replace with your username
@@ -185,8 +189,16 @@
 
       # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "networkmanager" "wheel" ];
+
+      # To enable zsh for a particular user, use the users.users.<name?>.shell option for that user.
+      shell = pkgs.zsh;
     };
   };
+
+  # Whether to configure zsh as an interactive shell.
+  #   To enable zsh for a particular user, use the users.users.<name?>.shell option for that user.
+  #   To enable zsh system-wide use the users.defaultUserShell option.
+  programs.zsh.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -206,6 +218,11 @@
      vim
      wget
   ];
+
+  # A list of permissible login shells for user accounts.
+  #   No need to mention /bin/sh here, it is placed into this list implicitly.
+  #   replace pkgs.bashInteractive with pkgs.zsh
+  environment.shells = with pkgs; [ zsh ];
 
   # Set default editor as "vim" 
   environment.variables.EDITOR = "vim";
