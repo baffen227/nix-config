@@ -203,6 +203,14 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Enable appimage-run wrapper script and binfmt registration
+  programs.appimage = {
+    # Whether to enable appimage-run wrapper script for executing appimages on NixOS.
+    enable = true;
+    # Whether to enable binfmt registration to run appimages via appimage-run seamlessly.
+    binfmt = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
