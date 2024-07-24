@@ -118,7 +118,31 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
-  # Enable and setup alacritty
+  # Configure zsh and oh-my-zsh
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      update_system = "sudo nixos-rebuild switch --flake .#nixos";
+      update_home = "home-manager switch --flake .#baffen227@nixos";
+    };
+
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [
+        "git"
+        "history"
+        "rust"
+      ];
+    };
+  };
+
+  # Enable and configure alacritty
   # https://alacritty.org/config-alacritty.html
   programs.alacritty = {
     enable = true;
