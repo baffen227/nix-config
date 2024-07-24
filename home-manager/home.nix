@@ -122,7 +122,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    #autosuggestions.enable = true;
+    enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
