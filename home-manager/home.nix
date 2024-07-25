@@ -166,6 +166,26 @@
   # Enable neovim
   programs.neovim.enable = true;
 
+  # Enable and configure VSCodium
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      arrterian.nix-env-selector
+      jnoortheen.nix-ide
+      rust-lang.rust-analyzer
+      serayuzgur.crates
+      tamasfe.even-better-toml
+      vadimcn.vscode-lldb
+      eamodio.gitlens
+      mhutchie.git-graph
+      aaron-bond.better-comments
+      yzhang.markdown-all-in-one
+      # bierner.github-markdown-preview
+      vscodevim.vim
+    ];
+  };
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
