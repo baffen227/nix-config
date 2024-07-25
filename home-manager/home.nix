@@ -1,11 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -96,7 +95,7 @@
     #hugo # static site generator
     glow # markdown previewer in terminal
 
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
 
@@ -150,15 +149,16 @@
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
+      window.startup_mode = "Maximized";
+      scrolling.multiplier = 5;
       font = {
         normal = {
-	  family = "Source Code Pro";
-	  style = "Regular";
-	};
-	size = 15;
+          family = "Source Code Pro";
+          style = "Regular";
+        };
+        size = 15;
       };
       colors.draw_bold_text_with_bright_colors = true;
-      scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
     };
   };
