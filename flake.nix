@@ -21,7 +21,7 @@
     in
     {
       # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
+      # Available through 'sudo nixos-rebuild switch --flake .#your-hostname'
       nixosConfigurations = {
         # hostname is "nixos"
         nixos = nixpkgs.lib.nixosSystem {
