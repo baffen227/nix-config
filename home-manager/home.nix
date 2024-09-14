@@ -198,7 +198,8 @@
     };
 
     # Enable neovim
-    neovim.enable = true;
+    # Use my nixvim-flake instead
+    # neovim.enable = true;
 
     # Enable and configure VSCodium
     vscode = {
