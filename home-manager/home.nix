@@ -1,9 +1,9 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  inputs,
-  lib,
-  config,
+  #inputs,
+  #lib,
+  #config,
   pkgs,
   ...
 }:
@@ -115,77 +115,111 @@
 
   ];
 
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs = {
 
-  # Configure zsh and oh-my-zsh
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    # Enable home-manager and git
+    home-manager.enable = true;
 
-    defaultKeymap = "emacs";
-
-    shellAliases = {
-      ll = "ls -l";
-      update_system = "sudo nixos-rebuild switch --flake .#nixos";
-      update_home = "home-manager switch --flake .#baffen227@nixos";
+    # Configure git and lazygit
+    git = {
+      enable = true;
+      userEmail = "baffen227@gmail.com";
+      userName = "Harry Chen";
     };
 
-    oh-my-zsh = {
+    lazygit = {
       enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-        "history"
-        "rust"
+      settings = {
+        gui = {
+          # showFileTree = false;
+
+          theme = {
+            activeBorderColor = [
+              "blue"
+              "bold"
+            ];
+            selectedLineBgColor = [ "white" ];
+          };
+        };
+        git = {
+          # Improves performance
+          # https://github.com/jesseduffield/lazygit/issues/2875#issuecomment-1665376437
+          log.order = "default";
+
+          fetchAll = false;
+        };
+      };
+    };
+
+    # Configure zsh and oh-my-zsh
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+
+      defaultKeymap = "emacs";
+
+      shellAliases = {
+        ll = "ls -l";
+        update_system = "sudo nixos-rebuild switch --flake .#nixos";
+        update_home = "home-manager switch --flake .#baffen227@nixos";
+      };
+
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [
+          "git"
+          "history"
+          "rust"
+        ];
+      };
+    };
+
+    # Enable and configure alacritty
+    # https://alacritty.org/config-alacritty.html
+    alacritty = {
+      enable = true;
+      settings = {
+        env.TERM = "xterm-256color";
+        window.startup_mode = "Maximized";
+        scrolling.multiplier = 5;
+        font = {
+          normal = {
+            family = "Source Code Pro";
+            style = "Regular";
+          };
+          size = 15;
+        };
+        colors.draw_bold_text_with_bright_colors = true;
+        selection.save_to_clipboard = true;
+      };
+    };
+
+    # Enable neovim
+    neovim.enable = true;
+
+    # Enable and configure VSCodium
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with pkgs.vscode-extensions; [
+        arrterian.nix-env-selector
+        jnoortheen.nix-ide
+        rust-lang.rust-analyzer
+        serayuzgur.crates
+        tamasfe.even-better-toml
+        vadimcn.vscode-lldb
+        eamodio.gitlens
+        mhutchie.git-graph
+        aaron-bond.better-comments
+        yzhang.markdown-all-in-one
+        # bierner.github-markdown-preview
+        vscodevim.vim
       ];
     };
-  };
 
-  # Enable and configure alacritty
-  # https://alacritty.org/config-alacritty.html
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      env.TERM = "xterm-256color";
-      window.startup_mode = "Maximized";
-      scrolling.multiplier = 5;
-      font = {
-        normal = {
-          family = "Source Code Pro";
-          style = "Regular";
-        };
-        size = 15;
-      };
-      colors.draw_bold_text_with_bright_colors = true;
-      selection.save_to_clipboard = true;
-    };
-  };
-
-  # Enable neovim
-  programs.neovim.enable = true;
-
-  # Enable and configure VSCodium
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      arrterian.nix-env-selector
-      jnoortheen.nix-ide
-      rust-lang.rust-analyzer
-      serayuzgur.crates
-      tamasfe.even-better-toml
-      vadimcn.vscode-lldb
-      eamodio.gitlens
-      mhutchie.git-graph
-      aaron-bond.better-comments
-      yzhang.markdown-all-in-one
-      # bierner.github-markdown-preview
-      vscodevim.vim
-    ];
   };
 
   # Nicely reload system units when changing configs
