@@ -1,11 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs
-, lib
-, config
-, pkgs
-, ...
-}: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -97,7 +99,10 @@
 
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-chewing fcitx5-gtk ];
+    fcitx5.addons = with pkgs; [
+      fcitx5-chewing
+      fcitx5-gtk
+    ];
   };
 
   fonts = {
@@ -111,9 +116,7 @@
     ];
     fontconfig = {
       defaultFonts = {
-        emoji = [
-          "Noto Color Emoji"
-        ];
+        emoji = [ "Noto Color Emoji" ];
         monospace = [
           "Source Code Pro"
           "Noto Sans Mono CJK TC"
@@ -189,7 +192,10 @@
       #];
 
       # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
 
       # To enable zsh for a particular user, use the users.users.<name?>.shell option for that user.
       shell = pkgs.zsh;
@@ -238,29 +244,31 @@
 
   # Excluding some GNOME applications from the default install
   # https://nixos.wiki/wiki/GNOME
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    yelp
-  ]) ++ (with pkgs.gnome; [
-    gnome-clocks
-    gnome-contacts
-    gnome-maps
-    gnome-music
-    gnome-weather
-    gnome-calendar
+  environment.gnome.excludePackages =
+    (with pkgs; [
+      gnome-photos
+      gnome-tour
+      yelp
+    ])
+    ++ (with pkgs.gnome; [
+      gnome-clocks
+      gnome-contacts
+      gnome-maps
+      gnome-music
+      gnome-weather
+      gnome-calendar
 
-    cheese # webcam tool
-    epiphany # web browser
-    geary # email reader
-    totem # video player
-    simple-scan # document scanner
+      cheese # webcam tool
+      epiphany # web browser
+      geary # email reader
+      totem # video player
+      simple-scan # document scanner
 
-    atomix # puzzle game
-    hitori # sudoku game
-    iagno # go game
-    tali # poker game
-  ]);
+      atomix # puzzle game
+      hitori # sudoku game
+      iagno # go game
+      tali # poker game
+    ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
