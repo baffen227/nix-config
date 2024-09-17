@@ -187,7 +187,7 @@
         scrolling.multiplier = 5;
         font = {
           normal = {
-            family = "Source Code Pro";
+            family = "Hack Nerd Font Mono";
             style = "Regular";
           };
           size = 15;
