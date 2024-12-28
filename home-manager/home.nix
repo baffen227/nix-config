@@ -47,22 +47,56 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
-    #steam
-    appimage-run
 
+    # ===== Browser =====
+    chromium
+
+    # ===== Communication =====
+    element-desktop
+    #telegram-desktop
+    #discord
+    teams-for-linux
+    # For line us this chrome extensions:
+    ## https://chromewebstore.google.com/detail/line/ophjlpahpchlmihnnnihgmmeilfjmjjc?hl=zh-TW
+
+    # ===== Terminal =====
+    alacritty
+    alacritty-theme
     neofetch
     nnn # terminal file manager
 
+    # ===== Media =====
+    vlc
+    ffmpeg
+    obs-studio
+    gimp-with-plugins
+    libsForQt5.kdenlive
+    inkscape-with-extensions
+    libreoffice-fresh
+    #steam
+    appimage-run
+
+    # ===== Networking =====
+    wireshark
+    nettools
+
+    # ===== System Tools =====
+    gparted
+    ventoy-full
+    mkcert
+    # Used to check if an app is using Xwayland or Wayland
+    xorg.xeyes
+    docker-compose
+    ttf-tw-moe
     # archives
     zip
     xz
     unzip
     p7zip
-
     # utils
     ripgrep # recursively searches directories for a regex pattern
-    #jq # A lightweight and flexible command-line JSON processor
-    #yq-go # yaml processor https://github.com/mikefarah/yq
+    jq # A lightweight and flexible command-line JSON processor
+    yq-go # yaml processor https://github.com/mikefarah/yq
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
 
@@ -113,6 +147,12 @@
     pciutils # lspci
     usbutils # lsusb
 
+    # ===== DEV ===== #
+    # Postman Open-Source Alternative
+    hoppscotch
+    nixpkgs-fmt
+    saleae-logic-2
+    stm32cubemx
   ];
 
   # TODO: Some programs to be considered is at BTDL's nixos-work-config.
@@ -159,9 +199,7 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-
       defaultKeymap = "emacs";
-
       shellAliases = {
         ll = "ls -l";
         nvim = "nix run ~/Documents/nixvim-flake# --";
@@ -169,7 +207,6 @@
         update_system = "sudo nixos-rebuild switch --flake .#nixos";
         update_home = "home-manager switch --flake .#baffen227@nixos";
       };
-
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
