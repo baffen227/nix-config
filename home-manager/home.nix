@@ -115,6 +115,8 @@
 
   ];
 
+  # TODO: Some programs to be considered is at BTDL's nixos-work-config.
+
   programs = {
 
     # Enable home-manager and git
@@ -162,7 +164,8 @@
 
       shellAliases = {
         ll = "ls -l";
-        nixvim = "nix run ~/Documents/nixvim-flake# --";
+        nvim = "nix run ~/Documents/nixvim-flake# --";
+        # TODO: read variable hostName instead of hard-coded hostname
         update_system = "sudo nixos-rebuild switch --flake .#nixos";
         update_home = "home-manager switch --flake .#baffen227@nixos";
       };
