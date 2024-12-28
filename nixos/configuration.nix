@@ -133,7 +133,8 @@
     };
 
     inputMethod = {
-      enabled = "fcitx5";
+      enable = true;
+      type = "fcitx5";
       fcitx5.addons = with pkgs; [
         fcitx5-chewing
         fcitx5-gtk
@@ -263,7 +264,7 @@
   };
 
   # Enable sound with pipewire.
-  sound.enable = true; # for 24.11 the option no longer has any effect
+  # sound.enable = true; # for 24.11 the option no longer has any effect
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
@@ -342,7 +343,7 @@
       # Install Input Method Panel GNOME Shell Extensions to provide the input method popup.
       gnomeExtensions.kimpanel
       # Install Gnome Tweaks for remapping CapsLock to Ctrl
-      gnome.gnome-tweaks
+      gnome-tweaks
     ];
 
     # A list of permissible login shells for user accounts.
@@ -356,31 +357,26 @@
 
   # Excluding some GNOME applications from the default install
   # https://nixos.wiki/wiki/GNOME
-  environment.gnome.excludePackages =
-    (with pkgs; [
-      gnome-photos
-      gnome-tour
-      yelp
-    ])
-    ++ (with pkgs.gnome; [
-      gnome-clocks
-      gnome-contacts
-      gnome-maps
-      gnome-music
-      gnome-weather
-      gnome-calendar
-
-      cheese # webcam tool
-      epiphany # web browser
-      geary # email reader
-      totem # video player
-      simple-scan # document scanner
-
-      atomix # puzzle game
-      hitori # sudoku game
-      iagno # go game
-      tali # poker game
-    ]);
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-photos
+    gnome-tour
+    gnome-clocks
+    gnome-contacts
+    gnome-maps
+    gnome-music
+    gnome-weather
+    gnome-calendar
+    cheese # webcam tool
+    epiphany # web browser
+    geary # email reader
+    totem # video player
+    simple-scan # document scanner
+    atomix # puzzle game
+    hitori # sudoku game
+    iagno # go game
+    tali # poker game
+    yelp
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
