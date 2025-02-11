@@ -38,7 +38,7 @@
             inherit inputs outputs;
           };
           # > Our main nixos configuration file <
-          modules = [ ./nixos/configuration-t14s.nix ];
+          modules = [ ./nixos/configuration-thinkpadt14s.nix ];
         };
       };
 
