@@ -68,13 +68,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-3c80aab2-571b-43c8-8246-b2da1e364bea".device = "/dev/disk/by-uuid/3c80aab2-571b-43c8-8246-b2da1e364bea";
 
   # Networking
   networking = {
     # Set your hostname
-    # sample longer hostName = "FE-24415-BTDL-harrychen-DellVostro5410-NixOs"
-    hostName = "vostro";
+    # sample longer hostName = "FE-24415-BTDL-harrychen-LenovoThinkPadT14s-NixOs"
+    hostName = "t14s";
 
     # Enables wireless support via wpa_supplicant.
     # wireless.enable = true;
