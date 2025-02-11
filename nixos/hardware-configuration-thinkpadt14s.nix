@@ -26,14 +26,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7ee32b95-d090-47fd-a905-64a7d4b44d9d";
+    device = "/dev/disk/by-uuid/92686b48-8f82-44c5-9d4d-3d9378762877";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-317a8420-fa22-42b8-86ba-2201087902eb".device = "/dev/disk/by-uuid/317a8420-fa22-42b8-86ba-2201087902eb";
+  boot.initrd.luks.devices."luks-56d905ea-a256-4aac-bd13-6cb37682778b".device = "/dev/disk/by-uuid/56d905ea-a256-4aac-bd13-6cb37682778b";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D5EB-7C85";
+    device = "/dev/disk/by-uuid/5589-A4E1";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -43,7 +43,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-uuid/47c078a6-d649-427e-b046-0d1276fcac76";
+      device = "/var/lib/swapfile";
       size = 32 * 1024; # 32GB
     }
   ];
