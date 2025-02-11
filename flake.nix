@@ -32,6 +32,14 @@
           # > Our main nixos configuration file <
           modules = [ ./nixos/configuration-vostro5410.nix ];
         };
+        # hostname is "t14s"
+        t14s = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          # > Our main nixos configuration file <
+          modules = [ ./nixos/configuration-t14s.nix ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -45,6 +53,15 @@
           };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home-baffen227.nix ];
+        };
+        # username@hostname is "harrychen@t14s"
+        "harrychen@t14s" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          # > Our main home-manager configuration file <
+          modules = [ ./home-manager/home-harrychen.nix ];
         };
       };
 

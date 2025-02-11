@@ -1,6 +1,6 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   inputs,
   lib,
@@ -19,7 +19,7 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration-vostro5410.nix
+    ./hardware-configuration-thinkpadt14s.nix
   ];
 
   nixpkgs = {
@@ -68,6 +68,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.luks.devices."luks-3c80aab2-571b-43c8-8246-b2da1e364bea".device = "/dev/disk/by-uuid/3c80aab2-571b-43c8-8246-b2da1e364bea";
 
   # Networking
   networking = {
@@ -304,14 +305,14 @@
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     # Replace with your username
-    baffen227 = {
+    harrychen = {
       # You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
       # initialPassword = "correcthorsebatterystaple";
 
       isNormalUser = true;
-      description = "baffen227";
+      description = "HarryChen";
 
       # https://nixos.wiki/wiki/SSH_public_key_authentication
       #openssh.authorizedKeys.keys = [
@@ -395,5 +396,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
