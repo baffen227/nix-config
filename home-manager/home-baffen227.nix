@@ -204,8 +204,8 @@
         ll = "ls -l";
         nvim = "nix run ~/Documents/nixvim-flake# --";
         # TODO: read variable hostName instead of hard-coded hostname
-        update_system = "sudo nixos-rebuild switch --flake .#nixos";
-        update_home = "home-manager switch --flake .#baffen227@nixos";
+        # update_system = "sudo nixos-rebuild switch --flake .#vostro";
+        # update_home = "home-manager switch --flake .#baffen227@vostro";
       };
       oh-my-zsh = {
         enable = true;

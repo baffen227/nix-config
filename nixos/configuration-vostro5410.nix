@@ -18,7 +18,7 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    ./hardware-configuration-vostro5410.nix
   ];
 
   nixpkgs = {
@@ -72,7 +72,7 @@
   networking = {
     # Set your hostname
     # sample longer hostName = "FE-24415-BTDL-harrychen-DellVostro5410-NixOs"
-    hostName = "nixos";
+    hostName = "vostro";
 
     # Enables wireless support via wpa_supplicant.
     # wireless.enable = true;
