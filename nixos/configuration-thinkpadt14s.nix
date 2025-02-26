@@ -262,6 +262,11 @@
       # Used to set udev rules to access ST-LINK devices from probe-rs
       pkgs.openocd
     ];
+
+    # Add a udev rule to connect CANable for updating its firmware
+    udev.extraRules = ''
+      SUBSYSTEMS=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="df11", MODE:="0666"
+    '';
   };
 
   # Enable sound with pipewire.
@@ -351,7 +356,7 @@
     #   replace pkgs.bashInteractive with pkgs.zsh
     shells = with pkgs; [ zsh ];
 
-    # Set default editor as "vim" 
+    # Set default editor as "vim"
     variables.EDITOR = "vim";
   };
 
