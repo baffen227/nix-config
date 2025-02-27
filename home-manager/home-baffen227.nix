@@ -257,6 +257,7 @@
           serayuzgur.crates
           editorconfig.editorconfig
           tamasfe.even-better-toml
+          zhuangtongfa.material-theme
           rust-lang.rust-analyzer
           gruntfuggly.todo-tree
           vscodevim.vim
