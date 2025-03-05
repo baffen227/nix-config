@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  #inputs,
+  inputs,
   #lib,
   #config,
   pkgs,
@@ -153,6 +153,7 @@
     nixpkgs-fmt
     saleae-logic-2
     stm32cubemx
+    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.zed-editor
   ];
 
   # TODO: Some programs to be considered is at BTDL's nixos-work-config.
