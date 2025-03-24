@@ -204,7 +204,13 @@
     };
 
     # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = [
+        pkgs.foomatic-db
+        pkgs.foomatic-db-ppds
+      ];
+    };
 
     # Pipewire sound server
     pipewire = {
