@@ -62,6 +62,7 @@
     # ===== Terminal =====
     alacritty
     alacritty-theme
+    ghostty
     neofetch
     nnn # terminal file manager
 
